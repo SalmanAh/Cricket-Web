@@ -69,6 +69,34 @@
   border-radius: 3px;
 }
 
+/* Stumps broken animation */
+.stumps-broken .stump {
+  animation: stumpFall 0.5s ease-out forwards;
+}
+
+.stumps-broken .stump:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.stumps-broken .stump:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.stumps-broken .stump:nth-child(3) {
+  animation-delay: 0.05s;
+}
+
+@keyframes stumpFall {
+  0% {
+    transform: rotate(0deg) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(45deg) translateY(20px);
+    opacity: 0.3;
+  }
+}
+
 /* Batsman */
 .batsman {
   position: absolute;
@@ -153,25 +181,16 @@
   height: 20px;
   background: radial-gradient(circle at 30% 30%, #FF6B6B, #C92A2A);
   border-radius: 50%;
-  right: 100px;
-  top: 50%;
+  right: 100%;
+  top: 30%;
   transform: translateY(-50%);
   opacity: 0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Ball visible when at batsman */
-.field-area:has(.ball.bowling-animation) .ball {
-  opacity: 1;
-}
-
-.field-area:has(.ball.ball-hit) .ball {
-  opacity: 1;
-}
-
-/* Bowling animation */
+/* Bowling animation - ball comes to batsman */
 .bowling-animation {
-  animation: bowlBall 1.5s ease-in;
+  animation: bowlBall 1.5s ease-in forwards;
   opacity: 1;
 }
 
@@ -182,13 +201,20 @@
     opacity: 1;
   }
   100% {
-    right: 100px;
+    right: 150px;
     top: 50%;
     opacity: 1;
   }
 }
 
-/* Ball hit animation */
+/* Ball stays at batsman when power bar is shown */
+.ball-at-batsman {
+  right: 150px;
+  top: 50%;
+  opacity: 1;
+}
+
+/* Ball hit animation - ball flies away after shot */
 .ball-hit {
   animation: ballHit 0.8s ease-out forwards;
   opacity: 1;
@@ -196,13 +222,13 @@
 
 @keyframes ballHit {
   0% {
-    right: 100px;
+    right: 150px;
     top: 50%;
     opacity: 1;
     transform: translateY(-50%) scale(1);
   }
   30% {
-    right: 50px;
+    right: 100px;
     top: 40%;
     transform: translateY(-50%) scale(1.3);
   }
@@ -211,6 +237,30 @@
     top: 10%;
     opacity: 0;
     transform: translateY(-50%) scale(0.8);
+  }
+}
+
+/* Ball hits wicket animation - ball goes to stumps */
+.ball-hit-wicket {
+  animation: ballHitWicket 0.6s ease-out forwards;
+  opacity: 1;
+}
+
+@keyframes ballHitWicket {
+  0% {
+    right: 150px;
+    top: 50%;
+    opacity: 1;
+  }
+  50% {
+    right: 200px;
+    top: 50%;
+    opacity: 1;
+  }
+  100% {
+    right: 250px;
+    top: 50%;
+    opacity: 0;
   }
 }
 

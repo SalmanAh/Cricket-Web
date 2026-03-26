@@ -12,7 +12,7 @@ const CricketField = ({ gameState, lastOutcome }) => {
         {/* Pitch */}
         <div className="pitch">
           {/* Stumps */}
-          <div className="stumps stumps-left">
+          <div className={`stumps stumps-left ${gameState === 'result' && lastOutcome === 'wicket' ? 'stumps-broken' : ''}`}>
             <div className="stump"></div>
             <div className="stump"></div>
             <div className="stump"></div>
@@ -25,7 +25,12 @@ const CricketField = ({ gameState, lastOutcome }) => {
           </div>
           
           {/* Ball */}
-          <div className={`ball ${gameState === 'bowling' ? 'bowling-animation' : ''} ${gameState === 'shotPlayed' ? 'ball-hit' : ''}`}></div>
+          <div className={`ball 
+            ${gameState === 'bowling' ? 'bowling-animation' : ''} 
+            ${gameState === 'batting' ? 'ball-at-batsman' : ''}
+            ${gameState === 'shotPlayed' && lastOutcome !== 'wicket' ? 'ball-hit' : ''} 
+            ${gameState === 'shotPlayed' && lastOutcome === 'wicket' ? 'ball-hit-wicket' : ''}`}>
+          </div>
         </div>
       </div>
       
