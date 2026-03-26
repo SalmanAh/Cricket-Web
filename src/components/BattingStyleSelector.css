@@ -1,0 +1,102 @@
+.batting-style-selector {
+  padding: 30px;
+  background: white;
+  text-align: center;
+}
+
+.batting-style-selector h3 {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.style-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.style-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 30px;
+  background: white;
+  border: 3px solid #ddd;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-width: 200px;
+}
+
+.style-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.style-btn.active {
+  border-color: #667eea;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.style-icon {
+  font-size: 2.5em;
+}
+
+.style-name {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+.style-desc {
+  font-size: 0.9em;
+  opacity: 0.8;
+}
+
+.play-ball-btn {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  color: white;
+  border: none;
+  padding: 15px 50px;
+  font-size: 1.3em;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+}
+
+.play-ball-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
+}
+
+.play-ball-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .batting-style-selector {
+    padding: 20px;
+  }
+  
+  .style-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .style-btn {
+    min-width: auto;
+    width: 100%;
+  }
+  
+  .play-ball-btn {
+    width: 100%;
+    padding: 12px 30px;
+    font-size: 1.1em;
+  }
+}

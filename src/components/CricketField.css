@@ -1,0 +1,254 @@
+.cricket-field {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(to bottom, #87CEEB 0%, #4CAF50 30%, #4CAF50 100%);
+  overflow: hidden;
+}
+
+/* Crowd stands */
+.crowd-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: repeating-linear-gradient(
+    90deg,
+    #333 0px,
+    #333 5px,
+    #555 5px,
+    #555 10px,
+    #777 10px,
+    #777 15px,
+    #999 15px,
+    #999 20px
+  );
+  border-bottom: 3px solid #222;
+}
+
+/* Field area */
+.field-area {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Pitch */
+.pitch {
+  position: relative;
+  width: 600px;
+  height: 200px;
+  background: linear-gradient(to right, #8B7355 0%, #D2B48C 50%, #8B7355 100%);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Stumps */
+.stumps {
+  position: absolute;
+  display: flex;
+  gap: 8px;
+  bottom: 50%;
+  transform: translateY(50%);
+}
+
+.stumps-left {
+  left: 50px;
+}
+
+.stump {
+  width: 6px;
+  height: 60px;
+  background: #FFD700;
+  border-radius: 3px;
+}
+
+/* Batsman */
+.batsman {
+  position: absolute;
+  left: 150px;
+  bottom: 50%;
+  transform: translateY(50%);
+  width: 60px;
+  height: 80px;
+}
+
+.batsman-body {
+  position: absolute;
+  width: 40px;
+  height: 60px;
+  background: #2E7D32;
+  border-radius: 20px 20px 5px 5px;
+  left: 10px;
+  bottom: 0;
+}
+
+.batsman-body::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #FFA726;
+  border-radius: 50%;
+  top: -15px;
+  left: 5px;
+}
+
+.bat {
+  position: absolute;
+  width: 50px;
+  height: 10px;
+  background: #8B4513;
+  border-radius: 5px;
+  right: -20px;
+  bottom: 30px;
+  transform: rotate(-45deg);
+  transform-origin: left center;
+  transition: transform 0.3s;
+}
+
+/* Batting animation */
+.batting-animation .bat {
+  animation: batSwing 0.5s ease-in-out;
+}
+
+@keyframes batSwing {
+  0% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}
+
+/* Wicket animation */
+.wicket-animation {
+  animation: wicketFall 0.5s ease-out;
+}
+
+@keyframes wicketFall {
+  0% {
+    transform: translateY(50%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50%) rotate(90deg) translateX(30px);
+    opacity: 0.5;
+  }
+}
+
+/* Ball */
+.ball {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at 30% 30%, #FF6B6B, #C92A2A);
+  border-radius: 50%;
+  right: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Bowling animation */
+.bowling-animation {
+  animation: bowlBall 1.5s ease-in;
+  opacity: 1;
+}
+
+@keyframes bowlBall {
+  0% {
+    right: 100%;
+    top: 30%;
+    opacity: 1;
+  }
+  100% {
+    right: 100px;
+    top: 50%;
+    opacity: 1;
+  }
+}
+
+/* Ball hit animation */
+.ball-hit {
+  animation: ballHit 0.8s ease-out;
+  opacity: 1;
+}
+
+@keyframes ballHit {
+  0% {
+    right: 100px;
+    top: 50%;
+    opacity: 1;
+  }
+  100% {
+    right: -50px;
+    top: 20%;
+    opacity: 0;
+  }
+}
+
+/* Result display */
+.result-display {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: resultPop 0.5s ease-out;
+  z-index: 10;
+}
+
+@keyframes resultPop {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.wicket-text {
+  color: #FF0000;
+}
+
+.boundary-text {
+  color: #FFD700;
+}
+
+.runs-text {
+  color: #4CAF50;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .cricket-field {
+    height: 400px;
+  }
+  
+  .pitch {
+    width: 90%;
+    height: 150px;
+  }
+  
+  .result-display {
+    font-size: 3em;
+  }
+}
