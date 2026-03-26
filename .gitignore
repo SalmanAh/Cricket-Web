@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Report template (for local use only)
+PDF_REPORT_TEMPLATE.md
