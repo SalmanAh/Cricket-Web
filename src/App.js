@@ -44,25 +44,29 @@ function App() {
   // Handle shot outcome from power bar
   const handleShotOutcome = (outcome) => {
     setShowPowerBar(false);
+    setGameState('shotPlayed');
     setLastOutcome(outcome);
     
-    // Update game state based on outcome
-    if (outcome === 'wicket') {
-      setWickets(wickets + 1);
-    } else {
-      setRuns(runs + outcome);
-    }
-    
-    setBallsPlayed(ballsPlayed + 1);
-    
-    // Show result animation
-    setGameState('result');
-    
-    // Reset for next ball
+    // Play batting animation and ball hit animation
     setTimeout(() => {
-      setGameState('ready');
-      setLastOutcome(null);
-    }, 2000);
+      // Update game state based on outcome
+      if (outcome === 'wicket') {
+        setWickets(wickets + 1);
+      } else {
+        setRuns(runs + outcome);
+      }
+      
+      setBallsPlayed(ballsPlayed + 1);
+      
+      // Show result
+      setGameState('result');
+      
+      // Reset for next ball
+      setTimeout(() => {
+        setGameState('ready');
+        setLastOutcome(null);
+      }, 2000);
+    }, 800);
   };
 
   // Restart game

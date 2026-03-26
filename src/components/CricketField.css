@@ -160,6 +160,15 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+/* Ball visible when at batsman */
+.field-area:has(.ball.bowling-animation) .ball {
+  opacity: 1;
+}
+
+.field-area:has(.ball.ball-hit) .ball {
+  opacity: 1;
+}
+
 /* Bowling animation */
 .bowling-animation {
   animation: bowlBall 1.5s ease-in;
@@ -181,7 +190,7 @@
 
 /* Ball hit animation */
 .ball-hit {
-  animation: ballHit 0.8s ease-out;
+  animation: ballHit 0.8s ease-out forwards;
   opacity: 1;
 }
 
@@ -190,11 +199,18 @@
     right: 100px;
     top: 50%;
     opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+  30% {
+    right: 50px;
+    top: 40%;
+    transform: translateY(-50%) scale(1.3);
   }
   100% {
-    right: -50px;
-    top: 20%;
+    right: -100px;
+    top: 10%;
     opacity: 0;
+    transform: translateY(-50%) scale(0.8);
   }
 }
 
