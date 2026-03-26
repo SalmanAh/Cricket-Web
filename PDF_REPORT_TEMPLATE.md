@@ -4,13 +4,9 @@
 
 ---
 
-**Student Name:** [Your Full Name]  
-**Roll Number:** [Your Roll Number]  
-**Section:** [Your Section]  
-
-**Course:** CS-4032 Web Programming  
-**Semester:** [Your Semester]  
-**Submission Date:** [Date]
+**Student Name:** Salman Ahmed  
+**Roll Number:** 22i-0743  
+**Section:** B  
 
 ---
 
